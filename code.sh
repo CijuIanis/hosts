@@ -1,4 +1,8 @@
 #!/bin/sh
+bogus () {
+name=$1
+address=$2
+server=$3
 cat /etc/hosts | while read ip name rest
 do
     [[ -z "$ip" || "$ip" =~ ^# ]] && continue
@@ -11,3 +15,6 @@ do
         echo "Bogus IP for $name in /etc/hosts!"
     fi
 done
+}
+
+bogus name address server
